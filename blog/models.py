@@ -14,6 +14,17 @@ class Post(models.Model):
         self.save()
         
     def __str__(self):
-        return self.title    
+        return self.title
+
+class Person(models.Model):
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    age = models.IntegerField()
+    marital_status = models.CharField(max_length=20)
+    email = models.EmailField()
+    foto = models.ImageField()
+
+    def registered(self):
+        self.registered_date = timezone.now()    
 
 # Create your models here.
